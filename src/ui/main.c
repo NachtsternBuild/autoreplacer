@@ -1,7 +1,7 @@
 /**
 * main.c
 *
-* (C) Copyright 2025 @NachtsternBuild
+* (C) Copyright 2026 @NachtsternBuild
 *
 * License: GNU GENERAL PUBLIC LICENSE Version 3
 *
@@ -16,8 +16,8 @@ GtkWidget *radio_latex = NULL;
 GtkWidget *radio_emacs = NULL;
 
 // define the default config file
-static const char *selected_config = "/etc/autoreplacer/default.conf";
-static const char *default_file = "/var/default.txt";
+static const char *selected_config = "./config/default.conf";
+static const char *default_file = "./default.txt";
 
 // set the active button
 static void on_config_toggled(GtkToggleButton *button, gpointer user_data)
@@ -109,10 +109,10 @@ void activate_autoreplacer(GtkApplication* app, gpointer user_data)
 
     gtk_check_button_set_active(GTK_CHECK_BUTTON(radio_default), TRUE);
 
-    g_signal_connect(radio_default, "toggled", G_CALLBACK(on_config_toggled), (gpointer)"/etc/autoreplacer/default.conf");
-    g_signal_connect(radio_markdown, "toggled", G_CALLBACK(on_config_toggled), (gpointer)"/etc/autoreplacer/markdown.conf");
-    g_signal_connect(radio_latex, "toggled", G_CALLBACK(on_config_toggled), (gpointer)"/etc/autoreplacer/latex.conf");
-    g_signal_connect(radio_emacs, "toggled", G_CALLBACK(on_config_toggled), (gpointer)"/etc/autoreplacer/emacs.conf");
+    g_signal_connect(radio_default, "toggled", G_CALLBACK(on_config_toggled), (gpointer)"./config/default.conf");
+    g_signal_connect(radio_markdown, "toggled", G_CALLBACK(on_config_toggled), (gpointer)"./config/markdown.conf");
+    g_signal_connect(radio_latex, "toggled", G_CALLBACK(on_config_toggled), (gpointer)"./config/latex.conf");
+    g_signal_connect(radio_emacs, "toggled", G_CALLBACK(on_config_toggled), (gpointer)"./config/emacs.conf");
 
     gtk_box_append(GTK_BOX(content_box), radio_default);
     gtk_box_append(GTK_BOX(content_box), radio_markdown);

@@ -1,0 +1,20 @@
+Durch den Aufruf des folgenden Kommandos: gcc hello_world.c -o hello_-
+world in der Kommandozeile unter Linux, kann GCC den C-Quellcode in eine
+Objektdatei umwandeln. Mit dem Aufruf von gcc wird GCC angewiesen die Ob-
+jektdatei hello_world aus hello_world.c zu erstellen. Der Parameter -o mit dem
+darauffolgenden Namen gibt an, wie der Name der Ausgabedatei sein soll. Zum Bau
+des Programmes:
+a) „[Ein] Präprozessor löst erst alle Direktiven, die mit #[. . . ] beginnen, auf.“75
+Gemeint ist zum Bespiel die Bibliothek stdio.h in der Direktive #include
+<stdio.h>.
+b) Der C-Code wird kompiliert und in eine Assemblerdatei umgewandelt. Also die
+Sprache C wird in Assemblercode übersetzt. Diese Datei wird nicht gespeichert.
+c) Der kompilierte Code wird vom Assembler in einen Objektdatei übersetzt.
+Diese Dateien Enden auf .o.
+d) Erst danach werden alle Objektdateien, aus denen das Programm besteht,
+zusammengefügt. Diese Aufgabe übernimmt der Linker ld. Gleichzeitig fügt
+der Linker alle „benötigten Bibliotheksfunktionen“76 ein. Der Linker hat die
+Aufgabe, fehlende Bibliotheken/Funktionen aus anderen Bibliotheken hinzu-
+zufügen. Erst danach wird alles zu einer großen Objektdatei zusammengefügt.
+Anschließend kann der Nutzer die fertige Datei ausführen. Das geschieht mit dem
+Kommando: ./hello_world.

@@ -1,8 +1,7 @@
 /*
 * updater.c
 *
-* (C) Copyright 2025 AtlantisOS Project
-* by @NachtsternBuild
+* (C) Copyright 2026 @NachtsternBuild
 *
 * License: GNU GENERAL PUBLIC LICENSE Version 3
 *

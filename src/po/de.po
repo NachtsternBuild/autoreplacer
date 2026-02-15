@@ -19,73 +19,73 @@ msgstr ""
 
 #: build/helper/log/write_log_text.c:52
 msgid "Log Viewer"
-msgstr ""
+msgstr "Log"
 
 #: build/helper/log/write_log_text.c:128
 msgid "Show Log"
-msgstr ""
+msgstr "Log Anzeigen"
 
 #: build/helper/log/write_log_text.c:152
 msgid "Exit"
-msgstr ""
+msgstr "Beenden"
 
 #: build/design/dialogs/dialogs.c:32 build/design/dialogs/dialogs.c:43
 msgid "Information"
-msgstr ""
+msgstr "Information"
 
 #: build/design/dialogs/dialogs.c:33 build/design/dialogs/dialogs.c:53
 #: build/design/dialogs/dialogs.c:64 build/design/dialogs/dialogs.c:84
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: build/design/dialogs/dialogs.c:63 build/design/dialogs/dialogs.c:74
 msgid "Error"
-msgstr ""
+msgstr "Fehler"
 
 #: build/design/dialogs/about_dialog.c:76
 msgid "translator-credits"
-msgstr ""
+msgstr "translator-credits"
 
 #: build/design/dialogs/about_dialog.c:80
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentation"
 
 #: build/design/dialogs/about_dialog.c:84
 msgid "Fonts"
-msgstr ""
+msgstr "Schriften"
 
 #: build/design/dialogs/about_dialog.c:89
 msgid "Special thanks to"
-msgstr ""
+msgstr "Special thanks to"
 
 #: build/design/dialogs/dialog_multi_progress.c:44
 msgid "Completed."
-msgstr ""
+msgstr "Beendet"
 
 #: ui/main.c:62
 msgid "Replacing elements"
-msgstr ""
+msgstr "Elemente Ersetzen"
 
 #: ui/main.c:62
 msgid "Please wait..."
-msgstr ""
+msgstr "Bitte Warten..."
 
 #: ui/main.c:87
 msgid "Autoreplacer"
-msgstr ""
+msgstr "Autoreplacer"
 
 #: ui/main.c:101
 msgid "Default"
-msgstr ""
+msgstr "Standard"
 
 #: ui/main.c:102
 msgid "Markdown"
-msgstr ""
+msgstr "Markdown"
 
 #: ui/main.c:103
 msgid "LaTeX"
-msgstr ""
+msgstr "LaTeX"
 
 #: ui/main.c:104
 msgid "Emacs"
-msgstr ""
+msgstr "Emacs"
