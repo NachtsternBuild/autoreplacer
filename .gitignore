@@ -46,8 +46,6 @@ desktop.ini
 /dist/
 /target/
 /out/
-build/
-deb/
 
 # 
 # packagemanager
@@ -108,4 +106,8 @@ target/
 *.pid
 *.seed
 *.pid.lock
+
+build
+deb
+!deb/config
 

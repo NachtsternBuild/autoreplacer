@@ -54,14 +54,11 @@ prepare:
 	# create target dirs
 	mkdir -p $(BUILD_DIR)/uibase
 	mkdir -p $(DEBBUILD_TARGET)
-
+		
 	# copy code and other files
-	rsync -av --update --exclude '.git/' --exclude='*.md' $(TMP_DIR)/$(UIBASE_NAME)/$(UIBASE_SUBFOLDER)/* $(BUILD_DIR)/uibase
+	rsync -av --update --exclude '.git/' --exclude='*.md' --exclude='test/' --exclude='po/' $(TMP_DIR)/$(UIBASE_NAME)/$(UIBASE_SUBFOLDER)/* $(BUILD_DIR)/
 
-	rsync -av --update --exclude '.git/' --exclude='*.md' --exclude='*/config' $(TMP_DIR)/$(DEBBUILD_NAME)/$(DEBBUILD_SUBFOLDER)/* $(DEBBUILD_TARGET)
-
-	# add configs if they don't exist
-	rsync -av --exclude '.git/' --exclude='*.md' --ignore-existing $(TMP_DIR)/$(DEBBUILD_NAME)/$(DEBBUILD_CONFFOLDER)/* $(DEBBUILD_TARGET)/config
+	rsync -av --update --exclude '.git/' --exclude='*.md' --exclude='config/' $(TMP_DIR)/$(DEBBUILD_NAME)/$(DEBBUILD_SUBFOLDER)/* $(DEBBUILD_TARGET)
 
 clean-tmp:
 	rm -rf $(TMP_DIR)

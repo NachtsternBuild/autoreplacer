@@ -1,122 +1,67 @@
 # Makefile
 #
-# (C) Copyright 2025 AtlantisOS Project
-# by @NachtsternBuild
+# (C) Copyright 2025 @NachtsternBuild
 #
 # License: GNU GENERAL PUBLIC LICENSE Version 3
 #
-# Usage:
-# everything:
-# make
-# 
-# building only object files
-# make objects
-#
-# building libs
-# make lib
-#
-# building test
-# make test
-#
-# only languages:
-# make -C po
-# 
-# init new languages:
-# make -C po init-po
-#
-# update languages:
-# make -C po update-po
-#
-# install everything
-# sudo make install
-#
-# cleanup
-# make clean
-#
-# create test app
-# make test
-#
-# run test app
-# make testing
-# 
-# create test config file
-# make create-config
-#
-# make -f Dependcies.mk
+# Main makefile for the UI base
+# Note: modify this to use this as your main makefile
 
+# include the language makefile
 include Dependencies.mk
+include language.mk
+
+.DEFAULT_GOAL := all
+
 # compiler
-#CC = gcc
+#CC = gcc # for launchpad
 CC = ccache gcc
 # pass on to GCC where to search
-INCLUDES = -I. -IincludeINCLUDES -Iinclude -Ibuild/uibase
+INCLUDES = -I. -Iinclude -Ibuild
+# compiler config
+PKG_CFLAGS = $(shell pkg-config --cflags glib-2.0 gtk4 libadwaita-1 gobject-2.0 libsecret-1 vte-2.91-gtk4 libnotify)
+# linker config
+PKG_LIBS = $(shell pkg-config --libs glib-2.0 gtk4 libadwaita-1 gobject-2.0 libsecret-1 vte-2.91-gtk4 libnotify)
 
 # compiler flags
-CFLAGS = -Wall -fPIC $(INCLUDES) `pkg-config --cflags glib-2.0 gtk4 libadwaita-1 vte-2.91-gtk4`
+CFLAGS = -Wall -fPIC $(PKG_CFLAGS) $(INCLUDES) -pthread
 # linker flags
-LIBS   = `pkg-config --libs glib-2.0 gtk4 libadwaita-1 vte-2.91-gtk4`
+LIBS = $(PKG_LIBS)
 
 # all .c files
 HEADERS = $(shell find . -name '*.h')
-SRC = $(shell find . -name '*.c' ! -name 'test.c')
+SRC = $(shell find . -name '*.c')
+OBJ_CLEAN = $(shell find . -name '*.o')
 
 # objectfiles
-OBJ = $(SRC:.c=.o)
+OBJS = $(SRC:.c=.o)
 
-# targets
+.PHONY: all objects clean po
+
+
+# target
 TARGET = autoreplacer
 
-# paths
-PO_PATH = build/uibase/po
-UI_BASE = build/uibase
+# standard target
+all: $(TARGET) po
 
-BUILD_DIR = build
-OBJ = $(patsubst ./%.c,$(BUILD_DIR)/%.o,$(SRC))
+# create the target
+$(TARGET): $(OBJS)
+	$(CC) $(OBJS) -o $(TARGET) $(LIBS)
 
-.PHONY: all objects po clean help depends
-
-all: depends objects po $(TARGET)
-
-depends: prepare
-	rm -f $(UI_BASE)/Makefile
-	rm -rf $(PO_PATH)/*.po
-
-# Building only object files
-objects: $(OBJ)
-
-# create objectfiles
-#%.o: %.c $(HEADERS)
-#	$(CC) $(CFLAGS) -c $< -o $@ 
-$(BUILD_DIR)/%.o: %.c
-	@mkdir -p $(dir $@)
+# create the object files
+%.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
-# building test app
-$(TARGET): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^ $(LIBS)
-
-# running language logic in /po
-po:
-	$(MAKE) -C $(PO_PATH)
-
-help:
-	@echo " Building everything: "
-	@echo " make "
-	@echo " Building only object files: "
-	@echo " make objects "
-	@echo " Only languages: "
-	@echo " make -C $(PO_PATH) "
-	@echo " Init new languages: "
-	@echo " make -C $(PO_PATH) init-po "
-	@echo " Update languages: "
-	@echo " make -C $(PO_PATH) update-po "
-	@echo " Cleanup: "
-	@echo " make clean "
-	@echo " Help: "
-	@echo " make help "
+# running language makefile
+po: lang
 
 # cleanup
 clean:
-	rm -f $(OBJ)
-	$(MAKE) -C $(PO_PATH) clean
-	rm -f $(TARGET)
+	rm -f $(OBJS)
+	rm -rf locale
+	rm -f $(POTFILE)
+	@for lang in $(LINGUAS); do \
+		rm -f $(LOCALEDIR)/$$lang/LC_MESSAGES/$(PACKAGE).mo; \
+		rm -rf $(LOCALEDIR)/$$lang; \
+	done

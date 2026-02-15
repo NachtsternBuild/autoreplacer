@@ -1,0 +1,94 @@
+# English translations for PACKAGE package.
+# Copyright (C) 2026 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2026.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-02-15 11:34+0100\n"
+"PO-Revision-Date: 2026-02-15 11:31+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=ASCII\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: build/helper/log/write_log_text.c:52
+msgid "Log Viewer"
+msgstr "Log Viewer"
+
+#: build/helper/log/write_log_text.c:128
+msgid "Show Log"
+msgstr "Show Log"
+
+#: build/helper/log/write_log_text.c:152
+msgid "Exit"
+msgstr "Exit"
+
+#: build/design/dialogs/dialogs.c:32 build/design/dialogs/dialogs.c:43
+msgid "Information"
+msgstr "Information"
+
+#: build/design/dialogs/dialogs.c:33 build/design/dialogs/dialogs.c:53
+#: build/design/dialogs/dialogs.c:64 build/design/dialogs/dialogs.c:84
+msgid "OK"
+msgstr "OK"
+
+#: build/design/dialogs/dialogs.c:63 build/design/dialogs/dialogs.c:74
+msgid "Error"
+msgstr "Error"
+
+#: build/design/dialogs/about_dialog.c:76
+msgid "translator-credits"
+msgstr "translator-credits"
+
+#: build/design/dialogs/about_dialog.c:80
+msgid "Documentation"
+msgstr "Documentation"
+
+#: build/design/dialogs/about_dialog.c:84
+msgid "Fonts"
+msgstr "Fonts"
+
+#: build/design/dialogs/about_dialog.c:89
+msgid "Special thanks to"
+msgstr "Special thanks to"
+
+#: build/design/dialogs/dialog_multi_progress.c:44
+msgid "Completed."
+msgstr "Completed."
+
+#: ui/main.c:62
+msgid "Replacing elements"
+msgstr "Replacing elements"
+
+#: ui/main.c:62
+msgid "Please wait..."
+msgstr "Please wait..."
+
+#: ui/main.c:87
+msgid "Autoreplacer"
+msgstr "Autoreplacer"
+
+#: ui/main.c:101
+msgid "Default"
+msgstr "Default"
+
+#: ui/main.c:102
+msgid "Markdown"
+msgstr "Markdown"
+
+#: ui/main.c:103
+msgid "LaTeX"
+msgstr "LaTeX"
+
+#: ui/main.c:104
+msgid "Emacs"
+msgstr "Emacs"
+
+#~ msgid "Select Config:"
+#~ msgstr "Select Config:"
